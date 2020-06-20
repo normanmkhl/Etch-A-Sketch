@@ -48,3 +48,10 @@ button {
     font-size: 2em;
     opacity: 80%;
 }
+
+button:hover {
+    background-color: #105cbebe !important;
+    border: 2px solid#105cbebe !important;
+    color: rgba(0, 255, 85, 0.863);
+    transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
