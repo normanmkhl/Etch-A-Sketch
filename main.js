@@ -21,7 +21,8 @@ let makeGrid = square => {
     container_div.style.gridTemplateRows = `repeat(${square}, 1fr)`;
     container_div.style.gridTemplateRows = `repeat(${square}, 1fr)`;
     let columnId = document.getElementsByClassName('columns');
-    for(k = 0; k < columnId.length; i++){
+    
+    for(k = 0; k < columnId.length; k++){
         columnId[k].addEventListener('mouseover', onHover);
     }
 }
