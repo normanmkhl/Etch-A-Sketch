@@ -3,7 +3,7 @@ const row_div = document.getElementsByClassName('row');
 const columns_div = document.getElementsByClassName('columns');
 const button = document.getElementById('newgrid');
 
-let makeGrid = square => {
+let makeGrid = (square) => {
     for(i = 0; i < square; i++){
         const row_div = document.createElement('div');
         row_div.className = 'row';
@@ -36,7 +36,7 @@ function onHover() {
 let newGrid = () => {
     container_div.innerHTML = '';
     square = window.prompt('How many grid?');
-    makeGrid(square)
+    makeGrid(square);
 }
 
 button.addEventListener('click', newGrid);
