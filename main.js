@@ -1,42 +1,26 @@
-const container_div = document.getElementById('container');
-const row_div = document.getElementsByClassName('row');
-const columns_div = document.getElementsByClassName('columns');
-const button = document.getElementById('newgrid');
+const gridColor = ['violet','blush','lime','turquoise','salmon'];
+const gridContainer_div = document.getElementById("grid-container");
 
-let makeGrid = (square) => {
-    for(i = 0; i < square; i++){
-        const row_div = document.createElement('div');
-        row_div.className = 'row';
-        row_div.style.width = 400/square + 'px';
-        row_div.style.height = 400/square + 'px';
-        container_div.appendChild(row_div);
-        for(j = 0; j < square; j++){
-            const columns_div = document.createElement('div');
-            columns_div.className = 'columns';
-            columns_div.style.width = 400/square + 'px';
-            columns_div.style.height = 400/square + 'px';
-            row_div.appendChild(columns_div);
-        }
+
+let createGrid = (size) => {
+    for (i = 0; i < size * size; i++) {
+        let gridItem = document.createElement("div");
+        gridItem.addEventListener('mouseenter', () => {
+            if (gridItem.style.background == '') {
+                gridItem.style.background = gridColor[Math.floor(Math.random() * gridColor.length)]};
+        });
+        gridContainer_div.appendChild(gridItem).className = 'grid-item';
     }
-    container_div.style.gridTemplateRows = `repeat(${square}, 1fr)`;
-    container_div.style.gridTemplateRows = `repeat(${square}, 1fr)`;
-    let columnId = document.getElementsByClassName('columns');
-    
-    for(k = 0; k < columnId.length; k++){
-        columnId[k].addEventListener('mouseover', onHover);
-    }
+    gridContainer_div.style.gridTemplateColumns = `repeat(${size}, 30px)`;
+    gridContainer_div.style.gridTemplateRows = `repeat(${size}, 30px)`;
 }
 
-const defaultGrid = makeGrid(16);
+createGrid(16);
 
-function onHover() {
-    this.style.backgroundColor = '#b5cdbe';
-}
+let button_div = document.querySelector('#newgrid');
 
-let newGrid = () => {
-    container_div.innerHTML = '';
-    square = window.prompt('How many grid?');
-    makeGrid(square);
-}
-
-button.addEventListener('click', newGrid);
+button_div.addEventListener('click', () => {
+    gridContainer_div.innerHTML = '';
+    const size = prompt("How many squares");
+    createGrid(size);
+})
