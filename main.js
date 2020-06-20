@@ -2,7 +2,7 @@ const gridColor = ['violet','blush','lime','turquoise','salmon'];
 const gridContainer_div = document.getElementById("grid-container");
 
 
-let createGrid = (size) => {
+let newGrid = (size) => {
     for (i = 0; i < size * size; i++) {
         let gridItem = document.createElement("div");
         gridItem.addEventListener('mouseenter', () => {
@@ -15,12 +15,12 @@ let createGrid = (size) => {
     gridContainer_div.style.gridTemplateRows = `repeat(${size}, 30px)`;
 }
 
-createGrid(16);
+newGrid(16);
 
 let button_div = document.querySelector('#newgrid');
 
 button_div.addEventListener('click', () => {
     gridContainer_div.innerHTML = '';
-    const size = prompt("How many squares");
-    createGrid(size);
+    const size = prompt("How many squares (empty : 0, default : 16)");
+    newGrid(size);
 })
