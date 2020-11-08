@@ -1,5 +1,5 @@
 # Etch-A-Sketch
 
-Etch-A-Sketch as an assignment of a project
+Emulated the Etch A Sketch mechanical drawing device on a vanilla Javascript
 
 Link : https://normanmkhl.github.io/Etch-A-Sketch/
